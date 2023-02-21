@@ -13,14 +13,14 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh './PES2UG20CS189-1'
+                sh './PES2UG20CS189'
             }
         }
     }
     post {
         always {
             script {
-               // if (currentBuild.result == "FAILURE") {
+                if (currentBuild.result == "FAILURE") {
                     echo "Pipeline failed"
                 }
             }
